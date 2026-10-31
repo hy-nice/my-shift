@@ -1,1 +1,24 @@
 :root{font-family:-apple-system,BlinkMacSystemFont,"Noto Sans JP",sans-serif;color:#18273b;background:#f3f7fc}*{box-sizing:border-box}body{margin:0}main{max-width:560px;margin:auto;padding:22px 15px 60px}header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}header small{color:#4389df;font-weight:800;letter-spacing:2px}h1{font-size:23px;margin:5px 0}h2{font-size:17px;margin:0 0 15px}h3{font-size:14px;margin:18px 0 10px}.pill{background:#e2efff;color:#286bb5;border-radius:20px;padding:8px 11px;font-size:12px}.panel{background:white;border-radius:20px;padding:19px 16px;margin-bottom:15px;box-shadow:0 4px 22px #1c47720c}.month,.toolbar,.actions{display:flex;justify-content:space-between;align-items:center;gap:10px}.month{margin-bottom:15px;font-size:18px}.month button{width:40px;height:40px;font-size:27px;border:0;border-radius:12px;background:#f0f5fc;color:#316eaf}.calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}.weekday{text-align:center;font-size:12px;color:#8291a6;padding:8px 0}.weekday:first-child,.sun{color:#df6072}.sat{color:#4b86cf}.day{min-width:0;min-height:54px;background:#f4f7fb;border:1px solid transparent;border-radius:11px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:#26394d;font-size:15px}.day.selected{background:#e1efff;border:2px solid #4389df;color:#1768c4;font-weight:700}.day em{font-size:10px;font-style:normal}.hint{font-size:12px;color:#8291a6;line-height:1.6;margin:10px 0}.toolbar{border-top:1px solid #edf1f6;padding-top:12px;margin-top:12px;font-size:13px}.textbtn{background:none;border:0;color:#4389df;font-weight:700}.times{display:grid;grid-template-columns:1fr 1fr;gap:10px}.times label{font-size:13px;font-weight:700;color:#536477}.times input{display:block;width:100%;margin-top:8px;padding:12px 8px;border:1px solid #d9e3f0;border-radius:12px;background:white;font-size:18px;color:#18273b}button{cursor:pointer;font-family:inherit}button:disabled{opacity:.45;cursor:not-allowed}.primary,.outline{border-radius:12px;padding:13px 12px;font-weight:750;font-size:14px}.primary{background:#4389df;color:white;border:1px solid #4389df}.outline{background:white;color:#3275c4;border:1px solid #b9d5f5}#apply,#savePreset{width:100%;margin-top:12px}.presets{display:flex;gap:8px;flex-wrap:wrap}.preset{border:1px solid #d5e4f5;background:#f4f8ff;color:#3575bc;border-radius:20px;padding:8px 11px;font-size:12px}.shiftrow{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #edf1f6;padding:12px 0;gap:8px}.shiftrow:last-child{border:0}.shiftrow span{font-size:14px}.shiftrow button{border:0;background:#fff0f1;color:#c95b65;border-radius:8px;padding:7px 10px}.empty{color:#8b99ab;font-size:13px}textarea{width:100%;border:0;background:#f4f7fb;border-radius:12px;padding:15px;font-size:14px;line-height:1.7;color:#24374a;resize:vertical}.actions{margin-top:12px}.actions button{flex:1}footer{font-size:11px;color:#9aa7b5;text-align:center;line-height:1.7}
+
+
+/* iPhone / small-screen layout: avoid native time-input intrinsic width overlap. */
+.times{grid-template-columns:repeat(2,minmax(0,1fr))}
+.times label{display:block;min-width:0;max-width:100%;overflow:hidden}
+.times input{min-width:0;max-width:100%;font-size:16px;min-height:48px;line-height:normal}
+.day em{display:block;max-width:100%;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:9px}
+.shiftrow span{min-width:0;overflow-wrap:anywhere}
+@media(max-width:480px){
+  /* iOS Safari's native time picker can be wider than its CSS grid cell. */
+  .times{grid-template-columns:minmax(0,1fr);gap:14px}
+  .times label{width:100%}
+  .times input{width:100%;padding:12px;font-size:16px}
+  .panel{min-width:0}
+  .actions{flex-wrap:wrap}
+  .actions button{min-width:0}
+}
+@media(max-width:360px){
+  .panel{padding:16px 12px}
+  .calendar{gap:3px}
+  .day{font-size:14px}
+  .day em{font-size:8px}
+}
