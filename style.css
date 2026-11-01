@@ -276,6 +276,31 @@ footer {
   overflow-wrap: anywhere;
 }
 
+/* プリセット削除ボタン */
+.preset-item {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #d5e4f5;
+  border-radius: 20px;
+  background: #f4f8ff;
+  overflow: hidden;
+}
+
+.preset-item .preset {
+  border: none;
+  border-radius: 0;
+  padding: 8px 6px 8px 11px;
+}
+
+.preset-remove {
+  border: none;
+  background: transparent;
+  color: #c95b65;
+  font-size: 19px;
+  padding: 6px 11px;
+  cursor: pointer;
+}
+
 /* iPhone 시간 입력폼 크기 수정 */
 @media (max-width: 480px) {
   .times {

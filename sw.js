@@ -1,4 +1,4 @@
-const CACHE = "myshift-v4-ja-mobile";
+const CACHE = "myshift-v5-ja-mobile";
 const ASSETS = [
   "./",
   "./index.html",
